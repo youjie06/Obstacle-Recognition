@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>街景辨識介面</title>
+
+  <!-- 外部樣式 -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Maps Extended Component Library -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+
+  <!-- 使用新版 API 載入器 -->
+  <gmpx-api-loader key="AIzaSyBz4QBMJeCoblbo3INVmtQqI7ejVOoMXRY" solution-channel="GMP_website_v1" libraries="places"></gmpx-api-loader>
+</head>
+
+<body>
+  <!-- 搜尋欄 -->
+  <div class="search-bar">
+    <gmpx-place-picker id="placePicker" placeholder="輸入地址或地點"></gmpx-place-picker>
+  </div>
+
+  <!-- 地圖 -->
+  <gmp-map id="map" center="23.022188186645508,120.22420501708984" zoom="14" map-id="DEMO_MAP_ID" style="width: 100%; height: 100vh;">
+    <gmp-advanced-marker id="mapMarker" position="23.022188186645508,120.22420501708984" title="目前位置"></gmp-advanced-marker>
+  </gmp-map>
+
+  <!-- 控制面板 -->
+  <div class="control-panel">
+    <button class="icon-btn location" id="locateBtn">📍</button>
+    <button class="icon-btn camera" id="cameraBtn">📷</button>
+  </div>
+
+  <!-- 相機輸入 -->
+  <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;" />
+
+  <script>
+    const map = document.getElementById('map');
+    const marker = document.getElementById('mapMarker');
+
+    // 📍 定位功能
+    document.getElementById('locateBtn').addEventListener('click', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          map.setAttribute('center', `${lat},${lng}`);
+          map.setAttribute('zoom', '15');
+          marker.setAttribute('position', `${lat},${lng}`);
+          marker.setAttribute('title', "你的位置");
+        }, () => {
+          alert('無法取得你的定位。');
+        });
+      } else {
+        alert('你的瀏覽器不支援定位功能。');
+      }
+    });
+
+    // 📍 使用者從 place-picker 選擇地點後更新地圖與標記
+    document.getElementById('placePicker').addEventListener('gmpx-placechange', (event) => {
+      const place = event.detail;
+
+      if (!place || !place.geometry || !place.geometry.location || typeof place.geometry.location.lat !== 'number') {
+        alert("找不到結果！");
+        return;
+      }
+
+      const { lat, lng } = place.geometry.location;
+
+      map.setAttribute('center', `${lat},${lng}`);
+      map.setAttribute('zoom', '16');
+      marker.setAttribute('position', `${lat},${lng}`);
+      marker.setAttribute('title', place.formatted_address || place.name || "搜尋結果");
+    });
+
+    // 📷 拍照功能
+    document.getElementById('cameraBtn').addEventListener('click', () => {
+      document.getElementById('cameraInput').click();
+    });
+
+    document.getElementById('cameraInput').addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        alert('拍照成功！你可以處理這張圖片了。');
+        // 可在這裡加入圖片預覽或上傳等後續處理
+      }
+    });
+  </script>
+</body>
+</html>
