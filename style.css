@@ -94,8 +94,8 @@ html, body {
   }
 
   .control-panel {
-    height: 300px;          /* 手機版控制面板更高 */
-    padding-bottom: 40px;   /* 增加底部空間 */
+    height: 200px;          /* 手機版控制面板更高 */
+    padding-bottom: 30px;   /* 增加底部空間 */
     border-top-left-radius: 50% 80px;
     border-top-right-radius: 50% 80px; /* 圓角拉大，比例更好看 */
   }
@@ -107,9 +107,4 @@ html, body {
     padding: 0;             /* 讓emoji正中心 */
   }
 
-  .search-bar {
-    top: 10px;             /* 搜尋列位置稍微上調，適合手機 */
-    width: 90%;            /* 拉寬一點點 */
-    left: 5%;
-  }
 }
