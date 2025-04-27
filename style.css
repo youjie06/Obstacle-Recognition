@@ -93,18 +93,11 @@ html, body {
     border: 1px solid #ccc;
   }
 
-  .control-panel {
-    height: 100px;          /* 手機版控制面板更高 */
-    padding-bottom: 20px;   /* 增加底部空間 */
-    border-top-left-radius: 50% 80px;
-    border-top-right-radius: 50% 80px; /* 圓角拉大，比例更好看 */
-  }
-
   .icon-btn {
     font-size: 100px;       /* 按鈕大字體 */
     width: 120px;           /* 固定寬高 */
     height: 120px;
-    padding: 0;             /* 讓emoji正中心 */
+    padding: 10px;             /* 讓emoji正中心 */
   }
 
 }
