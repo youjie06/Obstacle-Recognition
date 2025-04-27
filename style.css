@@ -94,15 +94,18 @@ body, html {
   border-radius: 50%;
   padding: 15px;
   font-size: 24px;
+  line-height: 1;
+  text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   cursor: pointer;
   transition: background 0.3s;
 }
 
-/* --- 新加的手機放大版 --- */
+/* 手機版強制大字 */
 @media (max-width: 768px) {
-  body {
-    background: red !important; /* 測試小於768px螢幕會變紅色背景 */
+  .icon-btn {
+    font-size: 48px;
+    padding: 20px;
   }
 }
 
