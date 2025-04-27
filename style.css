@@ -94,8 +94,8 @@ html, body {
   }
 
   .control-panel {
-    height: 200px;          /* 手機版控制面板更高 */
-    padding-bottom: 30px;   /* 增加底部空間 */
+    height: 100px;          /* 手機版控制面板更高 */
+    padding-bottom: 20px;   /* 增加底部空間 */
     border-top-left-radius: 50% 80px;
     border-top-right-radius: 50% 80px; /* 圓角拉大，比例更好看 */
   }
