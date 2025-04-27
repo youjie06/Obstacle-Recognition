@@ -1,103 +1,102 @@
 /* 全域樣式設定 */
 * {
-  box-sizing: border-box; /* 讓 padding 和 border 不會增加元素實際寬高 */
-  margin: 0;              /* 移除預設外距 */
-  padding: 0;             /* 移除預設內距 */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body, html {
-  height: 100%;               /* 設定為佔滿整個視窗高度 */
-  font-family: sans-serif;    /* 使用無襯線字體 */
-  margin: 0;                  /* 移除預設外距 */
-  background: #f0f0f0;        /* 淺灰色背景 */
-  overflow: hidden;           /* 防止出現捲軸 */
+  height: 100%;
+  font-family: sans-serif;
+  margin: 0;
+  background: #f0f0f0;
+  overflow: hidden;
 }
 
 /* 預設電腦版樣式 */
 .app-container {
-  position: relative;     /* 作為絕對定位子元素的參考點 */
-  width: 100%;            /* 寬度填滿畫面 */
-  height: 100vh;          /* 高度填滿視窗 */
-  background: #fff;       /* 白色背景 */
-  overflow: hidden;       /* 防止內容超出 */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
 }
 
 /* 手機寬度下（最大寬度768px）限定樣式 */
 @media (max-width: 768px) {
   .app-container {
-    max-width: 430px;         /* 限制最大寬度為430px（模擬手機裝置） */
-    margin: auto;             /* 水平置中 */
-    border: 1px solid #ccc;   /* 淺灰色邊框 */
+    max-width: 430px;
+    margin: auto;
+    border: 1px solid #ccc;
   }
 }
 
 /* 搜尋列樣式 */
 .search-bar {
-  position: absolute;        /* 絕對定位於容器內 */
-  top: 20px;                 /* 距離頂部 20px */
-  left: 10%;                 /* 距離左邊 10% */
-  width: 80%;                /* 寬度為80% */
-  display: flex;             /* 使用 flex 排列內容 */
-  align-items: center;       /* 垂直置中對齊 */
-  background: rgba(255, 255, 255, 0.6); /* 半透明白底 */
-  border-radius: 20px;       /* 圓角邊框 */
-  padding: 5px 10px;         /* 內距 */
-  backdrop-filter: blur(5px); /* 模糊背景效果 */
-  z-index: 2;                /* 疊層順序 */
-  gap: 10px;                 /* 元素間距 */
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 5px 10px;
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  gap: 10px;
 }
 
 .search-bar gmpx-place-picker {
-  flex-grow: 1;     /* 撐滿剩餘空間 */
-  min-width: 0;     /* 防止過度撐開 */
+  flex-grow: 1;
+  min-width: 0;
 }
 
-/* 搜尋按鈕樣式 */
+/* 搜尋按鈕樣式（加大版） */
 .search-bar .icon-btn.search {
-  background: none;        /* 無背景色 */
-  border: none;            /* 無邊框 */
-  font-size: 20px;         /* 字型大小 */
-  cursor: pointer;         /* 滑鼠游標顯示為可點擊 */
-  padding: 10px;           /* 內距 */
-  border-radius: 50%;      /* 圓形 */
-  display: flex;           /* 使用 flex 排列圖示 */
-  align-items: center;     /* 垂直置中 */
-  justify-content: center; /* 水平置中 */
-  transition: background 0.3s; /* 背景變化動畫 */
+  background: none;
+  border: none;
+  font-size: 32px;              /* 加大字體 */
+  padding: 20px;                /* 加大按鈕範圍 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
 }
 
 .search-bar .icon-btn.search:hover {
-  background: #eee; /* 滑鼠移入背景變淡灰色 */
+  background: #eee;
 }
 
 /* 底部控制面板樣式 */
 .control-panel {
-  position: absolute;         /* 固定在底部 */
-  bottom: 0;                  /* 靠近底部 */
-  width: 100%;               /* 寬度填滿 */
-  height: 150px;             /* 高度 150px */
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent); /* 漸層背景 */
-  display: flex;             /* 使用 flex 排列按鈕 */
-  justify-content: space-around; /* 均勻分布 */
-  align-items: flex-end;     /* 靠底對齊 */
-  padding-bottom: 20px;      /* 下方內距 */
-  border-top-left-radius: 50% 50px;  /* 左上圓角 */
-  border-top-right-radius: 50% 50px; /* 右上圓角 */
-  z-index: 2;                /* 疊層順序 */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  border-top-left-radius: 50% 50px;
+  border-top-right-radius: 50% 50px;
+  z-index: 2;
 }
 
-/* 通用 icon 按鈕樣式 */
+/* 通用 icon 按鈕樣式（加大版） */
 .icon-btn {
-  background: #fff;              /* 白色背景 */
-  border: none;                 /* 無邊框 */
-  border-radius: 50%;           /* 圓形 */
-  padding: 15px;                /* 內距 */
-  font-size: 24px;              /* 圖示大小 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 陰影效果 */
-  cursor: pointer;              /* 滑鼠游標顯示為可點擊 */
-  transition: background 0.3s;  /* 背景動畫 */
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 25px;                /* 加大按鈕範圍 */
+  font-size: 36px;              /* 加大字體 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* 陰影加重 */
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .icon-btn:hover {
-  background: #eee; /* 滑鼠移入變灰 */
+  background: #eee;
 }
