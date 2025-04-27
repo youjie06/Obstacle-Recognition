@@ -97,6 +97,13 @@ body, html {
   transition: background 0.3s;
 }
 
+@media (max-width: 768px) {
+  .icon-btn {
+    font-size: 36px;
+    padding: 20px;
+  }
+}
+
 .icon-btn:hover {
   background: #eee;
 }
