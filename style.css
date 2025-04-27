@@ -90,9 +90,9 @@ body, html {
   background: #fff;
   border: none;
   border-radius: 50%;
-  padding: 25px;                /* 加大按鈕範圍 */
+  padding: 50px;                /* 加大按鈕範圍 */
   font-size: 36px;              /* 加大字體 */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* 陰影加重 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.50); /* 陰影加重 */
   cursor: pointer;
   transition: background 0.3s;
 }
