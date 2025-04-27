@@ -92,7 +92,7 @@ body, html {
   border: none;                 /* 無邊框 */
   border-radius: 50%;           /* 圓形 */
   padding: 15px;                /* 內距 */
-  font-size: 24px;              /* 圖示大小 */
+  font-size: 100px;              /* 圖示大小 */
   box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 陰影效果 */
   cursor: pointer;              /* 滑鼠游標顯示為可點擊 */
   transition: background 0.3s;  /* 背景動畫 */
