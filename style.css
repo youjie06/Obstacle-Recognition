@@ -101,11 +101,11 @@ body, html {
 
 /* --- 新加的手機放大版 --- */
 @media (max-width: 768px) {
-  .icon-btn {
-    font-size: 36px;
-    padding: 20px;
+  body {
+    background: red !important; /* 測試小於768px螢幕會變紅色背景 */
   }
 }
+
 
 .icon-btn:hover {
   background: #eee; /* 滑鼠移入變灰 */
