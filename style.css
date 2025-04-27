@@ -86,12 +86,24 @@ body, html {
   z-index: 2;
 }
 
+/* 通用 icon 按鈕樣式 */
+.icon-btn {
+  background: #fff;              /* 白色背景 */
+  border: none;                 /* 無邊框 */
+  border-radius: 50%;           /* 圓形 */
+  padding: 15px;                /* 內距 */
+  font-size: 24px;              /* 圖示大小 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 陰影效果 */
+  cursor: pointer;              /* 滑鼠游標顯示為可點擊 */
+  transition: background 0.3s;  /* 背景動畫 */
+}
+
 .icon-btn {
   background: #fff;
   border: none;
   border-radius: 50%;
   padding: 15px;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -102,7 +114,7 @@ body, html {
 /* 手機版強制大字 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 80px;
+    font-size: 60px;
     padding: 10px;
   }
 }
