@@ -88,19 +88,14 @@ body, html {
 
 /* 通用 icon 按鈕樣式 */
 .icon-btn {
-  background: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 60px;      /* 桌機版大小 */
-  width: 80px;
-  height: 80px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: background 0.3s;
+  background: #fff;              /* 白色背景 */
+  border: none;                 /* 無邊框 */
+  border-radius: 50%;           /* 圓形 */
+  padding: 15px;                /* 內距 */
+  font-size: 24px;              /* 圖示大小 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 陰影效果 */
+  cursor: pointer;              /* 滑鼠游標顯示為可點擊 */
+  transition: background 0.3s;  /* 背景動畫 */
 }
 
 @media (max-width: 768px) {
