@@ -101,8 +101,8 @@ body, html {
 /* 手機版強制大字 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 50px;
-    padding: 10px;
+    font-size: 100px;
+    padding: 15px;
   }
 }
 
