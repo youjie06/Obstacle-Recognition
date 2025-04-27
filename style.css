@@ -103,7 +103,7 @@ body, html {
   border: none;
   border-radius: 50%;
   padding: 15px;
-  font-size: 80px;
+  font-size: 80px !important;
   line-height: 1;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -114,7 +114,7 @@ body, html {
 /* 手機版強制大字 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 80px;
+    font-size: 80px !important;
     padding: 10px;
   }
 }
