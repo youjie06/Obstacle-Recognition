@@ -114,11 +114,10 @@ body, html {
 /* 手機版強制大字 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 48px;
-    padding: 20px;
+    font-size: 60px;
+    padding: 25px;
   }
 }
-
 
 .icon-btn:hover {
   background: #eee; /* 滑鼠移入變灰 */
