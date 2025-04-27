@@ -102,8 +102,8 @@ body, html {
 @media (max-width: 768px) {
   .icon-btn {
     font-size: 80px;    /* emoji大小 40px */
-    width: 80px;        /* 寬度 60px */
-    height: 80px;       /* 高度 60px */
+    width: 100px;        /* 寬度 60px */
+    height: 100px;       /* 高度 60px */
     padding: 0;         /* 還是可以不用 padding，讓圖示置中 */
   }
 
