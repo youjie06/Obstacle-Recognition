@@ -101,9 +101,9 @@ body, html {
 /* 手機版調整 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 60px;      /* emoji 大小微調 */
-    width: 100px;          /* 圓形寬高更協調 */
-    height: 100px;
+    font-size: 80px;      /* emoji 大小微調 */
+    width: 150px;          /* 圓形寬高更協調 */
+    height: 150px;
     padding: 0;
   }
 
