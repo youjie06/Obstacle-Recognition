@@ -101,19 +101,20 @@ body, html {
 /* 手機版調整 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 48px;    /* emoji大小 40px */
-    width: 100px;        /* 寬度 60px */
-    height: 100px;       /* 高度 60px */
-    padding: 0;         /* 還是可以不用 padding，讓圖示置中 */
+    font-size: 40px;      /* emoji 大小微調 */
+    width: 80px;          /* 圓形寬高更協調 */
+    height: 80px;
+    padding: 0;
   }
 
   .control-panel {
-    height: 100px;      /* 把底部控制面板拉矮 */
-    padding-bottom: 10px; /* 保留小小底部間距 */
-    border-top-left-radius: 50% 30px;
-    border-top-right-radius: 50% 30px;
+    height: 90px;          /* 面板高度再降低一點 */
+    padding-bottom: 20px;  /* 增加底部 padding，避免貼太底 */
+    border-top-left-radius: 50% 25px;
+    border-top-right-radius: 50% 25px;
   }
 }
+
 
 
 .icon-btn:hover {
