@@ -108,7 +108,7 @@ body, html {
   }
 
   .control-panel {
-    height: 50px;      /* 把底部控制面板拉矮 */
+    height: 100px;      /* 把底部控制面板拉矮 */
     padding-bottom: 10px; /* 保留小小底部間距 */
     border-top-left-radius: 50% 30px;
     border-top-right-radius: 50% 30px;
