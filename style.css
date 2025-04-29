@@ -101,14 +101,14 @@ body, html {
 /* 手機版調整 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 40px;      /* emoji 大小微調 */
-    width: 80px;          /* 圓形寬高更協調 */
-    height: 80px;
+    font-size: 60px;      /* emoji 大小微調 */
+    width: 100px;          /* 圓形寬高更協調 */
+    height: 100px;
     padding: 0;
   }
 
   .control-panel {
-    height: 90px;          /* 面板高度再降低一點 */
+    height: 110px;          /* 面板高度再降低一點 */
     padding-bottom: 20px;  /* 增加底部 padding，避免貼太底 */
     border-top-left-radius: 50% 25px;
     border-top-right-radius: 50% 25px;
