@@ -107,8 +107,12 @@ body, html {
     padding: 0;
   }
 
+  .icon-btn.search {
+    font-size: 80px; /* 這行是關鍵，否則會被原本的 20px 覆蓋 */
+  }
+
   .control-panel {
-    height: 110px;          /* 面板高度再降低一點 */
+    height: 160px;          /* 面板高度再降低一點 */
     padding-bottom: 20px;  /* 增加底部 padding，避免貼太底 */
     border-top-left-radius: 50% 25px;
     border-top-right-radius: 50% 25px;
