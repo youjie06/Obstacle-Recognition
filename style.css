@@ -101,25 +101,30 @@ body, html {
 /* 手機版調整 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 80px;      /* emoji 大小微調 */
-    width: 150px;          /* 圓形寬高更協調 */
+    font-size: 80px;
+    width: 150px;
     height: 150px;
     padding: 0;
   }
 
   .icon-btn.search {
-    font-size: 80px; /* 這行是關鍵，否則會被原本的 20px 覆蓋 */
+    font-size: 80px;
   }
 
   .control-panel {
-    height: 160px;          /* 面板高度再降低一點 */
-    padding-bottom: 20px;  /* 增加底部 padding，避免貼太底 */
+    height: 160px;
+    padding-bottom: 20px;
     border-top-left-radius: 50% 25px;
     border-top-right-radius: 50% 25px;
+    transition: transform 0.3s ease;
+    touch-action: none; /* 防止手機手勢干擾 */
+    transform: translateY(100px); /* 預設下滑隱藏部分 */
+  }
+
+  .control-panel.expanded {
+    transform: translateY(0); /* 完全展開 */
   }
 }
-
-
 
 .icon-btn:hover {
   background: #eee; /* 滑鼠移入變灰 */

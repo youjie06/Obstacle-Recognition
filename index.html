@@ -1,114 +1,131 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <!-- 設定字元編碼為 UTF-8 -->
   <meta charset="UTF-8" />
-  
-  <!-- 設定成響應式網頁 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  
   <title>街景辨識介面</title>
 
-  <!-- 外部樣式，引用本地的 style.css 檔案 -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- 引入 Google Maps API -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
-
-  <!--  API 載入器 -->
   <gmpx-api-loader key="AIzaSyBz4QBMJeCoblbo3INVmtQqI7ejVOoMXRY" solution-channel="GMP_website_v1" libraries="places"></gmpx-api-loader>
+
+  <style>
+    @media (max-width: 768px) {
+      .icon-btn {
+        font-size: 80px;
+        width: 150px;
+        height: 150px;
+        padding: 0;
+      }
+
+      .icon-btn.search {
+        font-size: 80px;
+      }
+
+      .control-panel {
+        height: 160px;
+        padding-bottom: 20px;
+        border-top-left-radius: 50% 25px;
+        border-top-right-radius: 50% 25px;
+        transition: transform 0.3s ease;
+        touch-action: none;
+        transform: translateY(100px); /* 預設下滑狀態 */
+      }
+
+      .control-panel.expanded {
+        transform: translateY(0); /* 展開狀態 */
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- 搜尋欄，使用 Google 的地方選擇器 -->
   <div class="search-bar">
-    <!-- gmpx-place-picker 是一個元件，提供地點選擇功能 -->
     <gmpx-place-picker id="placePicker" placeholder="輸入地址或地點"></gmpx-place-picker>
   </div>
 
-  <!-- 地圖顯示區域 -->
   <gmp-map id="map" center="23.022188186645508,120.22420501708984" zoom="14" map-id="DEMO_MAP_ID" style="width: 100%; height: 100vh;">
-    <!-- 地圖上的標記，顯示當前位置 -->
     <gmp-advanced-marker id="mapMarker" position="23.022188186645508,120.22420501708984" title="目前位置"></gmp-advanced-marker>
   </gmp-map>
 
-  <!-- 控制面板，包含定位和拍照功能的按鈕 -->
-  <div class="control-panel">
-    <!-- 定位按鈕 -->
+  <div class="control-panel" id="controlPanel">
     <button class="icon-btn location" id="locateBtn">📍</button>
-    
-    <!-- 拍照按鈕 -->
     <button class="icon-btn camera" id="cameraBtn">📷</button>
   </div>
 
-  <!-- 隱藏的相機輸入框，允許用戶拍照 -->
   <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;" />
 
   <script>
-    // 取得地圖和標記的 DOM 元素
     const map = document.getElementById('map');
     const marker = document.getElementById('mapMarker');
 
-    // 📍 定位功能
-    // 當用戶點擊定位按鈕時，觸發此事件
     document.getElementById('locateBtn').addEventListener('click', () => {
-      // 檢查瀏覽器是否支援定位功能
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-          // 獲取當前的緯度和經度
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
-          // 更新地圖中心點與縮放級別
           map.setAttribute('center', `${lat},${lng}`);
           map.setAttribute('zoom', '15');
-          // 更新標記的位置
           marker.setAttribute('position', `${lat},${lng}`);
           marker.setAttribute('title', "你的位置");
         }, () => {
-          // 若無法取得定位，顯示錯誤訊息
           alert('無法取得你的定位。');
         });
       } else {
-        // 若瀏覽器不支援定位功能，顯示錯誤訊息
         alert('你的瀏覽器不支援定位功能。');
       }
     });
 
-    // 📍 使用者從 place-picker 選擇地點後，更新地圖與標記
     document.getElementById('placePicker').addEventListener('gmpx-placechange', (event) => {
       const place = event.detail;
-
-      // 檢查選擇的地點是否有效
       if (!place || !place.geometry || !place.geometry.location || typeof place.geometry.location.lat !== 'number') {
         alert("找不到結果！");
         return;
       }
 
-      // 獲取選擇地點的緯度與經度
       const { lat, lng } = place.geometry.location;
-      // 更新地圖中心點與縮放級別
       map.setAttribute('center', `${lat},${lng}`);
       map.setAttribute('zoom', '16');
-      // 更新標記的位置
       marker.setAttribute('position', `${lat},${lng}`);
       marker.setAttribute('title', place.formatted_address || place.name || "搜尋結果");
     });
 
-    // 📷 拍照功能
-    // 當用戶點擊拍照按鈕時，觸發相機輸入框
     document.getElementById('cameraBtn').addEventListener('click', () => {
       document.getElementById('cameraInput').click();
     });
 
-    // 當用戶選擇照片後，處理照片
     document.getElementById('cameraInput').addEventListener('change', (event) => {
       const file = event.target.files[0];
       if (file) {
         alert('拍照成功！你可以處理這張圖片了。');
-        // 你可以在這裡加入圖片預覽或其他處理功能
       }
+    });
+
+    // ⬆️⬇️ 拖拉控制面板功能
+    const controlPanel = document.getElementById('controlPanel');
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+
+    controlPanel.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+      isDragging = true;
+    });
+
+    controlPanel.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      currentY = e.touches[0].clientY;
+      const deltaY = currentY - startY;
+      if (deltaY < -30) {
+        controlPanel.classList.add('expanded');
+      } else if (deltaY > 30) {
+        controlPanel.classList.remove('expanded');
+      }
+    });
+
+    controlPanel.addEventListener('touchend', () => {
+      isDragging = false;
     });
   </script>
 </body>
 </html>
-#
