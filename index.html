@@ -104,7 +104,6 @@
     // ⬆️⬇️ 拖拉控制面板功能
     const controlPanel = document.getElementById('controlPanel');
     let startY = 0;
-    let currentY = 0;
     let isDragging = false;
 
     controlPanel.addEventListener('touchstart', (e) => {
@@ -114,18 +113,20 @@
 
     controlPanel.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
-      currentY = e.touches[0].clientY;
-      const deltaY = currentY - startY;
-      if (deltaY < -30) {
-        controlPanel.classList.add('expanded');
-      } else if (deltaY > 30) {
+      const deltaY = e.touches[0].clientY - startY;
+
+      if (deltaY > 30) {
+        controlPanel.classList.add('collapsed');
         controlPanel.classList.remove('expanded');
+      } else if (deltaY < -30) {
+        controlPanel.classList.add('expanded');
+        controlPanel.classList.remove('collapsed');
       }
     });
 
-    controlPanel.addEventListener('touchend', () => {
-      isDragging = false;
-    });
+  controlPanel.addEventListener('touchend', () => {
+    isDragging = false;
+  });
   </script>
 </body>
 </html>
