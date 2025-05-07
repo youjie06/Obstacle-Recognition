@@ -120,7 +120,7 @@ body, html {
 
   /* ✅ 新增：調整地圖高度，讓出 control-panel 的空間 */
   #map {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 180px);
   }
 }
 
