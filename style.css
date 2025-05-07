@@ -13,7 +13,7 @@ body, html {
   overflow: hidden;           /* 防止出現捲軸 */
 }
 
-/* 預設電腦版樣式 */   
+/* 預設電腦版樣式 */
 .app-container {
   position: relative;     /* 作為絕對定位子元素的參考點 */
   width: 100%;            /* 寬度填滿畫面 */
@@ -34,7 +34,7 @@ body, html {
 /* 搜尋列樣式 */
 .search-bar {
   position: absolute;        /* 絕對定位於容器內 */
-  top: 60px;                 /* 距離頂部 50px */
+  top: 50px;                 /* 距離頂部 50px */
   left: 10%;                 /* 距離左邊 10% */
   width: 80%;                /* 寬度為80% */
   display: flex;             /* 使用 flex 排列內容 */
@@ -118,12 +118,9 @@ body, html {
     border-top-right-radius: 50% 25px;
   }
 
+  /* ✅ 新增：調整地圖高度，讓出 control-panel 的空間 */
   #map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 180px; 
+    height: calc(100vh - 180px);
   }
 }
 
