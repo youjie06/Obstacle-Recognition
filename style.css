@@ -118,9 +118,12 @@ body, html {
     border-top-right-radius: 50% 25px;
   }
 
-  /* ✅ 新增：調整地圖高度，讓出 control-panel 的空間 */
   #map {
-    height: calc(100vh - 180px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 180px; /* ⬅️ 等於 .control-panel 的高度 */
   }
 }
 
