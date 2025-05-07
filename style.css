@@ -18,7 +18,7 @@ body, html {
   position: relative;     /* 作為絕對定位子元素的參考點 */
   width: 100%;            /* 寬度填滿畫面 */
   height: 100vh;          /* 高度填滿視窗 */
-  background: linear-gradient(to top, white 200px, transparent 400px); 
+  background: #fff;       /* 白色背景 */
   overflow: hidden;       /* 防止內容超出 */
 }
 
