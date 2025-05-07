@@ -101,38 +101,30 @@ body, html {
 /* 手機版調整 */
 @media (max-width: 768px) {
   .icon-btn {
-    font-size: 80px;      /* emoji 大小微調 */
-    width: 150px;          /* 圓形寬高更協調 */
+    font-size: 80px;
+    width: 150px;
     height: 150px;
     padding: 0;
   }
 
   .icon-btn.search {
-    font-size: 80px; /* 這行是關鍵，否則會被原本的 20px 覆蓋 */
+    font-size: 80px;
   }
 
   .control-panel {
-    height: 160px;          /* 面板高度再降低一點 */
-    padding-bottom: 20px;  /* 增加底部 padding，避免貼太底 */
+    height: 160px;
+    padding-bottom: 20px;
     border-top-left-radius: 50% 25px;
     border-top-right-radius: 50% 25px;
   }
 
-  /* 提高控制元件的位置，使其位於右下按鈕上方 */
-  .gm-fullscreen-control,
-  .gm-svpc,  /* 小黃人 Pegman 控制器 */
-  .gmnoprint {
-    bottom: 150px !important; /* 調高：避免蓋到你的 control-panel */
-    right: 10px !important;
-    z-index: 9999; /* 確保在最上層 */
-  }
-
-  /* 避免控制元件跑到底部太靠近 */
-  .gm-style > div > div > div[style*="bottom: 0px"] {
-    bottom: 150px !important;
+  /* ✅ 新增：調整地圖高度，讓出 control-panel 的空間 */
+  #map {
+    height: calc(100vh - 160px);
   }
 }
 
-  .icon-btn:hover {
-    background: #eee; /* 滑鼠移入變灰 */
-  }
+
+.icon-btn:hover {
+  background: #eee; /* 滑鼠移入變灰 */
+}

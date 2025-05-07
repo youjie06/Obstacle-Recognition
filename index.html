@@ -77,23 +77,6 @@
       }
     });
 
-    // ✅ 延遲調整 Google 地圖控制元件位置
-    function adjustGoogleMapControls() {
-  const interval = setInterval(() => {
-    const controls = document.querySelectorAll('.gm-fullscreen-control, .gm-svpc, .gmnoprint');
-    if (controls.length > 0) {
-      controls.forEach(el => {
-        el.style.bottom = '150px';
-        el.style.right = '10px';
-        el.style.zIndex = '9999';
-      });
-      clearInterval(interval); // 只執行一次
-    }
-  }, 500);
-}
-window.addEventListener('load', adjustGoogleMapControls);
-
-    setTimeout(adjustGoogleMapControls, 2000);
   </script>
 </body>
 </html>
