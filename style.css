@@ -34,7 +34,7 @@ body, html {
 /* 搜尋列樣式 */
 .search-bar {
   position: absolute;        /* 絕對定位於容器內 */
-  top: 20px;                 /* 距離頂部 20px */
+  top: 50px;                 /* 距離頂部 50px */
   left: 10%;                 /* 距離左邊 10% */
   width: 80%;                /* 寬度為80% */
   display: flex;             /* 使用 flex 排列內容 */
