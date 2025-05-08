@@ -96,7 +96,7 @@ body, html {
 .divider {
   width: 2px;
   background: #8f8f8f;       /* 分隔線顏色，可自行調整 */
-  height: 60%;            /* 高度佔按鈕區的 60% */
+  height: 100%;            /* 高度佔按鈕區的 60% */
   align-self: center;     /* 垂直置中 */
 }
 
