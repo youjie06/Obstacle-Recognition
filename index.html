@@ -53,20 +53,6 @@
       }
     });
 
-    // 📍 搜尋地點
-      document.getElementById('locateBtn').addEventListener('click', () => {
-      const place = event.detail;
-      if (!place || !place.geometry || !place.geometry.location || typeof place.geometry.location.lat !== 'number') {
-        alert("找不到結果！");
-        return;
-      }
-      const { lat, lng } = place.geometry.location;
-      map.setAttribute('center', `${lat},${lng}`);
-      map.setAttribute('zoom', '16');
-      marker.setAttribute('position', `${lat},${lng}`);
-      marker.setAttribute('title', place.formatted_address || place.name || "搜尋結果");
-    });
-
     // 📷 拍照功能
     document.getElementById('cameraBtn').addEventListener('click', () => {
       document.getElementById('cameraInput').click();
