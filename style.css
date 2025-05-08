@@ -52,24 +52,6 @@ body, html {
   min-width: 0;     /* 防止過度撐開 */
 }
 
-/* 搜尋按鈕樣式 */
-.search-bar .icon-btn.search {
-  background: none;        /* 無背景色 */
-  border: none;            /* 無邊框 */
-  font-size: 20px;         /* 字型大小 */
-  cursor: pointer;         /* 滑鼠游標顯示為可點擊 */
-  padding: 10px;           /* 內距 */
-  border-radius: 50%;      /* 圓形 */
-  display: flex;           /* 使用 flex 排列圖示 */
-  align-items: center;     /* 垂直置中 */
-  justify-content: center; /* 水平置中 */
-  transition: background 0.3s; /* 背景變化動畫 */
-}
-
-.search-bar .icon-btn.search:hover {
-  background: #eee; /* 滑鼠移入背景變淡灰色 */
-}
-
 /* 底部左右分割按鈕容器 */
 .split-buttons {
   position: absolute;
@@ -113,6 +95,7 @@ body, html {
   }
 
   #map {
-    height: calc(100vh - 160px);
+    width: 100%;
+    height: calc(100vh - 180px);
   }
 }
