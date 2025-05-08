@@ -22,9 +22,10 @@
 
   <!-- 控制面板 -->
   <div class="split-buttons">
-    <button class="half-btn">📍</button>
-    <button class="half-btn">📷</button>
+    <button class="half-btn" id="locateBtn">📍</button>
+    <button class="half-btn" id="cameraBtn">📷</button>
   </div>
+
 
   <!-- 相機輸入 -->
   <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display: none;" />
@@ -52,7 +53,7 @@
     });
 
     // 📍 搜尋地點
-    document.getElementById('placePicker').addEventListener('gmpx-placechange', (event) => {
+      document.getElementById('locateBtn').addEventListener('click', () => {
       const place = event.detail;
       if (!place || !place.geometry || !place.geometry.location || typeof place.geometry.location.lat !== 'number') {
         alert("找不到結果！");
