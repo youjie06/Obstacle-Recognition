@@ -29,7 +29,7 @@ body, html {
     margin: auto;             /* 水平置中 */
     border: 1px solid #ccc;   /* 淺灰色邊框 */
   }
-}
+
 
 /* 搜尋列樣式 */
 .search-bar {
@@ -97,3 +97,4 @@ body, html {
     height: calc(100vh - 160px);
   }
 
+}
