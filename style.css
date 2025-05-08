@@ -78,7 +78,7 @@ body, html {
 .divider {
   width: 2px;
   background: #8f8f8f;       /* 分隔線顏色，可自行調整 */
-  height: 100%;            /* 高度佔按鈕區的 60% */
+  height: 100%;            /* 高度佔按鈕區的 100% */
   align-self: center;     /* 垂直置中 */
 }
 
@@ -96,6 +96,6 @@ body, html {
 
   #map {
     width: 100%;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 160px);
   }
 }
